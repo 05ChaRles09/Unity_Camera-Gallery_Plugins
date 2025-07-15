@@ -144,26 +144,56 @@
 4. UI 界面設計與連接 (UI Design & Connection)
     Scene切到2D比較方便拖曳和設計
     框架:
-    ├── Main Camera
-    ├── Directional Light
-    ├── NativeCamera (Create Empty) 掛上CameraHandler
-    ├── Canvas (相機功能UI)
-    │   ├── RawImage
-    │   ├── StatusText
-    │   ├── TakePictureButton
-    │   │   └── Text (Legacy)
-    │   └── RecordVideoButton
-    │       └── Text (Legacy)
-    ├── EventSystem
-    ├── PermissionManager (Create Empty) 掛上CameraPermissionManager
-    ├── GalleryManagerObject (Create Empty) 掛上GalleryManager
-    └── Canvas (圖庫功能UI)
-        ├── SelectImageButton
-        │   └── Text (Legacy)
-        ├── SaveScreenshotButton
-        │   └── Text (Legacy)
-        ├── StatusText
-        └── Display Image
+        ├── Main Camera
+        │   └── (Unity 場景中的主要攝影機，用於渲染遊戲畫面)
+        │
+        ├── Directional Light
+        │   └── (Unity 場景中的預設方向光，提供基本照明)
+        │
+        ├── NativeCamera (空 GameObject)
+        │   └── 掛載: CameraHandler.cs 腳本
+        │       └── (負責處理所有與原生相機相關的邏輯，包括拍照和錄影)
+        │
+        ├── Canvas (相機功能 UI 畫布)
+        │   └── (所有相機功能相關的 UI 元素都將放置在此 Canvas 下)
+        │       ├── RawImage
+        │       │   └── (用於顯示透過原生相機拍攝的照片或錄影的縮圖)
+        │       ├── StatusText
+        │       │   └── (用於顯示相機功能相關的狀態訊息或權限提示)
+        │       ├── TakePictureButton
+        │       │   └── (觸發拍照功能的 UI 按鈕)
+        │       │   └── Text (Legacy)
+        │       │       └── (按鈕上的文字標籤，例如 "拍照")
+        │       └── RecordVideoButton
+        │           └── (觸發錄影功能的 UI 按鈕)
+        │           └── Text (Legacy)
+        │               └── (按鈕上的文字標籤，例如 "錄影")
+        │
+        ├── EventSystem
+        │   └── (Unity UI 系統的必要組件，用於處理使用者輸入事件，如按鈕點擊)
+        │
+        ├── PermissionManager (空 GameObject)
+        │   └── 掛載: CameraPermissionManager.cs 腳本
+        │       └── (**可選**：如果你選擇將權限管理邏輯從 `CameraHandler` 和 `GalleryManager` 中抽離，此 GameObject 將負責集中處理相機和圖庫的運行時權限請求)
+        │
+        ├── GalleryManagerObject (空 GameObject)
+        │   └── 掛載: GalleryManager.cs 腳本
+        │       └── (負責處理所有與原生圖庫相關的邏輯，包括從圖庫選擇圖片和保存截圖)
+        │
+        └── Canvas (圖庫功能 UI 畫布)
+            └── (所有圖庫功能相關的 UI 元素都將放置在此 Canvas 下)
+                ├── SelectImageButton
+                │   └── (觸發從圖庫選擇圖片功能的 UI 按鈕)
+                │   └── Text (Legacy)
+                │       └── (按鈕上的文字標籤，例如 "選擇圖片")
+                ├── SaveScreenshotButton
+                │   └── (觸發保存應用程式截圖功能的 UI 按鈕)
+                │   └── Text (Legacy)
+                │       └── (按鈕上的文字標籤，例如 "保存截圖")
+                ├── StatusText
+                │   └── (用於顯示圖庫功能相關的狀態訊息或權限提示)
+                └── Display Image
+                    └── (用於顯示從圖庫選擇的圖片)
 
     4.2 Inspector 連接步驟
     為每個腳本 (GalleryManager.cs 和 CameraHandler.cs) 創建獨立的 GameObject (例如 GalleryManagerObject 和  CameraHandlerObject)。
