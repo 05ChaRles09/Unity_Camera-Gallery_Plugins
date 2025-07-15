@@ -145,9 +145,9 @@
     Scene切到2D比較方便拖曳和設計
     4.1
     框架:
-
+```text
     ├── Main Camera
-    │   ├── (Unity 場景中的主要攝影機，用於渲染遊戲畫面)
+    │   └── (Unity 場景中的主要攝影機，用於渲染遊戲畫面)
     │
     ├── Directional Light
     │   └── (Unity 場景中的預設方向光，提供基本照明)
@@ -196,7 +196,7 @@
             │   └── (用於顯示圖庫功能相關的狀態訊息或權限提示)
             └── Display Image
                 └── (用於顯示從圖庫選擇的圖片)
-
+```text
     4.2 Inspector 連接步驟
     為每個腳本 (GalleryManager.cs 和 CameraHandler.cs) 創建獨立的 GameObject (例如 GalleryManagerObject 和  CameraHandlerObject)。
     將對應的 UI 元素 (按鈕、圖片、文本) 從 Hierarchy 拖曳到 Inspector 中腳本的公共變數欄位。
@@ -249,7 +249,7 @@
 
     **註2**
     寫過的這個框架(如下)，加上 Grid Layout Group, Vertical Layout Group 最後 Build And Run 成果會是全白畫面，並且功能全無。
-
+```text
         ├── Canvas (畫布 - 基礎)
         |   - 元件：Canvas Scaler
         |       - 設置：UI Scale Mode: Scale With Screen Size
@@ -342,3 +342,4 @@
             - 元件：Image (拖曳此 Image 元件到 AndroidSystemBridge 腳本的 Themed Graphics 列表)
             - 元件：Vertical Layout Group 或 Horizontal Layout Group (根據音量滑條方向)
             └── (未來這裡將放置音量控制相關的 Slider, Text 等 UI 元件)
+```text
