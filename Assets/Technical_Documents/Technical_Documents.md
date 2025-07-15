@@ -143,9 +143,10 @@
 
 4. UI 界面設計與連接 (UI Design & Connection)
     Scene切到2D比較方便拖曳和設計
+    
 框架:
         ├── Main Camera
-│   └── (Unity 場景中的主要攝影機，用於渲染遊戲畫面)
+│   ├── (Unity 場景中的主要攝影機，用於渲染遊戲畫面)
 │
 ├── Directional Light
 │   └── (Unity 場景中的預設方向光，提供基本照明)
@@ -247,13 +248,13 @@
 
     **註2**
     寫過的這個框架(如下)，加上 Grid Layout Group, Vertical Layout Group 最後 Build And Run 成果會是全白畫面，並且功能全無。
-└── Canvas (畫布 - 基礎)
+├── Canvas (畫布 - 基礎)
     - 元件：Canvas Scaler
         - 設置：UI Scale Mode: Scale With Screen Size
         - 設置：Reference Resolution: 1920x1080
         - 設置：Screen Match Mode: Match Width Or Height 0.5
     
-    └── GlobalPanel (全局背景面板 - 總容器與主題背景)
+    ├── GlobalPanel (全局背景面板 - 總容器與主題背景)
         - 元件：Rect Transform (錨點: Stretch, Left/Top/Right/Bottom: 0)
         - 元件：Image (拖曳此 Image 元件到 AndroidSystemBridge 腳本的 Themed Graphics 列表)
 
