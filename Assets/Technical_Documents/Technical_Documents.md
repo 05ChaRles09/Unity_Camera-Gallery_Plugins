@@ -143,57 +143,57 @@
 
 4. UI 界面設計與連接 (UI Design & Connection)
     Scene切到2D比較方便拖曳和設計
-    框架:
+框架:
         ├── Main Camera
-        │   └── (Unity 場景中的主要攝影機，用於渲染遊戲畫面)
-        │
-        ├── Directional Light
-        │   └── (Unity 場景中的預設方向光，提供基本照明)
-        │
-        ├── NativeCamera (空 GameObject)
-        │   └── 掛載: CameraHandler.cs 腳本
-        │       └── (負責處理所有與原生相機相關的邏輯，包括拍照和錄影)
-        │
-        ├── Canvas (相機功能 UI 畫布)
-        │   └── (所有相機功能相關的 UI 元素都將放置在此 Canvas 下)
-        │       ├── RawImage
-        │       │   └── (用於顯示透過原生相機拍攝的照片或錄影的縮圖)
-        │       ├── StatusText
-        │       │   └── (用於顯示相機功能相關的狀態訊息或權限提示)
-        │       ├── TakePictureButton
-        │       │   └── (觸發拍照功能的 UI 按鈕)
-        │       │   └── Text (Legacy)
-        │       │       └── (按鈕上的文字標籤，例如 "拍照")
-        │       └── RecordVideoButton
-        │           └── (觸發錄影功能的 UI 按鈕)
-        │           └── Text (Legacy)
-        │               └── (按鈕上的文字標籤，例如 "錄影")
-        │
-        ├── EventSystem
-        │   └── (Unity UI 系統的必要組件，用於處理使用者輸入事件，如按鈕點擊)
-        │
-        ├── PermissionManager (空 GameObject)
-        │   └── 掛載: CameraPermissionManager.cs 腳本
-        │       └── (**可選**：如果你選擇將權限管理邏輯從 `CameraHandler` 和 `GalleryManager` 中抽離，此 GameObject 將負責集中處理相機和圖庫的運行時權限請求)
-        │
-        ├── GalleryManagerObject (空 GameObject)
-        │   └── 掛載: GalleryManager.cs 腳本
-        │       └── (負責處理所有與原生圖庫相關的邏輯，包括從圖庫選擇圖片和保存截圖)
-        │
-        └── Canvas (圖庫功能 UI 畫布)
-            └── (所有圖庫功能相關的 UI 元素都將放置在此 Canvas 下)
-                ├── SelectImageButton
-                │   └── (觸發從圖庫選擇圖片功能的 UI 按鈕)
-                │   └── Text (Legacy)
-                │       └── (按鈕上的文字標籤，例如 "選擇圖片")
-                ├── SaveScreenshotButton
-                │   └── (觸發保存應用程式截圖功能的 UI 按鈕)
-                │   └── Text (Legacy)
-                │       └── (按鈕上的文字標籤，例如 "保存截圖")
-                ├── StatusText
-                │   └── (用於顯示圖庫功能相關的狀態訊息或權限提示)
-                └── Display Image
-                    └── (用於顯示從圖庫選擇的圖片)
+│   └── (Unity 場景中的主要攝影機，用於渲染遊戲畫面)
+│
+├── Directional Light
+│   └── (Unity 場景中的預設方向光，提供基本照明)
+│
+├── NativeCamera (空 GameObject)
+│   └── 掛載: CameraHandler.cs 腳本
+│       └── (負責處理所有與原生相機相關的邏輯，包括拍照和錄影)
+│
+├── Canvas (相機功能 UI 畫布)
+│   └── (所有相機功能相關的 UI 元素都將放置在此 Canvas 下)
+│       ├── RawImage
+│       │   └── (用於顯示透過原生相機拍攝的照片或錄影的縮圖)
+│       ├── StatusText
+│       │   └── (用於顯示相機功能相關的狀態訊息或權限提示)
+│       ├── TakePictureButton
+│       │   └── (觸發拍照功能的 UI 按鈕)
+│       │   └── Text (Legacy)
+│       │       └── (按鈕上的文字標籤，例如 "拍照")
+│       └── RecordVideoButton
+│           └── (觸發錄影功能的 UI 按鈕)
+│           └── Text (Legacy)
+│               └── (按鈕上的文字標籤，例如 "錄影")
+│
+├── EventSystem
+│   └── (Unity UI 系統的必要組件，用於處理使用者輸入事件，如按鈕點擊)
+│
+├── PermissionManager (空 GameObject)
+│   └── 掛載: CameraPermissionManager.cs 腳本
+│       └── (**可選**：如果你選擇將權限管理邏輯從 `CameraHandler` 和 `GalleryManager` 中抽離，此 GameObject 將負責集中處理相機和圖庫的運行時權限請求)
+│
+├── GalleryManagerObject (空 GameObject)
+│   └── 掛載: GalleryManager.cs 腳本
+│       └── (負責處理所有與原生圖庫相關的邏輯，包括從圖庫選擇圖片和保存截圖)
+│
+└── Canvas (圖庫功能 UI 畫布)
+    └── (所有圖庫功能相關的 UI 元素都將放置在此 Canvas 下)
+        ├── SelectImageButton
+        │   └── (觸發從圖庫選擇圖片功能的 UI 按鈕)
+        │   └── Text (Legacy)
+        │       └── (按鈕上的文字標籤，例如 "選擇圖片")
+        ├── SaveScreenshotButton
+        │   └── (觸發保存應用程式截圖功能的 UI 按鈕)
+        │   └── Text (Legacy)
+        │       └── (按鈕上的文字標籤，例如 "保存截圖")
+        ├── StatusText
+        │   └── (用於顯示圖庫功能相關的狀態訊息或權限提示)
+        └── Display Image
+            └── (用於顯示從圖庫選擇的圖片)
 
     4.2 Inspector 連接步驟
     為每個腳本 (GalleryManager.cs 和 CameraHandler.cs) 創建獨立的 GameObject (例如 GalleryManagerObject 和  CameraHandlerObject)。
@@ -247,9 +247,12 @@
 
     **註2**
     寫過的這個框架(如下)，加上 Grid Layout Group, Vertical Layout Group 最後 Build And Run 成果會是全白畫面，並且功能全無。
-    Canvas (畫布 - 基礎)
-    - 元件：Canvas Scaler (設置 UI Scale Mode: Scale With Screen Size, Reference Resolution: 1920x1080, Screen Match Mode: Match Width Or Height 0.5)
-
+└── Canvas (畫布 - 基礎)
+    - 元件：Canvas Scaler
+        - 設置：UI Scale Mode: Scale With Screen Size
+        - 設置：Reference Resolution: 1920x1080
+        - 設置：Screen Match Mode: Match Width Or Height 0.5
+    
     └── GlobalPanel (全局背景面板 - 總容器與主題背景)
         - 元件：Rect Transform (錨點: Stretch, Left/Top/Right/Bottom: 0)
         - 元件：Image (拖曳此 Image 元件到 AndroidSystemBridge 腳本的 Themed Graphics 列表)
@@ -257,7 +260,13 @@
         ├── SystemInfoPanel (系統資訊面板 - 左上角)
         │   - 元件：Rect Transform (錨點: Top-Left, Pos X/Y: 依設計調整, Width/Height: 依設計調整)
         │   - 元件：Image (拖曳此 Image 元件到 AndroidSystemBridge 腳本的 Themed Graphics 列表)
-        │   - 元件：Vertical Layout Group (設置 Padding, Spacing, Child Alignment, 勾選 Control Child Size W/H, Use Child Force Expand H)
+        │   - 元件：Vertical Layout Group
+        │       - 設置：Padding (依需求調整邊距)
+        │       - 設置：Spacing (依需求調整子元素間距)
+        │       - 設置：Child Alignment (子元素對齊方式)
+        │       - 勾選：Control Child Size Width
+        │       - 勾選：Control Child Size Height
+        │       - 勾選：Use Child Force Expand Height
         │
         │   ├── BatteryInfoText (TMP_Text - 電池資訊)
         │   │   - 元件：Rect Transform (由父級 Layout Group 控制)
@@ -273,9 +282,14 @@
         │   - 元件：Rect Transform (錨點: Center-Right 或 Center-Stretch, Pos X/Y: 依設計調整, Width/Height: 依設計調整)
         │   - 元件：Image (拖曳此 Image 元件到 AndroidSystemBridge 腳本的 Themed Graphics 列表)
         │   - 元件：Grid Layout Group (推薦用於按鈕排列)
-        │       - 設置：Padding, Cell Size (按鈕大小), Spacing (按鈕間距)
-        │       - 設置：Start Corner, Start Axis, Child Alignment
-        │       - 設置：Constraint: Fixed Column Count, Constraint Count: (例如 2 或 3)
+        │       - 設置：Padding (網格內邊距)
+        │       - 設置：Cell Size (網格單元格大小，即每個按鈕的大小)
+        │       - 設置：Spacing (單元格之間的間距)
+        │       - 設置：Start Corner (網格起始角落)
+        │       - 設置：Start Axis (網格延伸方向)
+        │       - 設置：Child Alignment (子元素在單元格內的對齊方式)
+        │       - 設置：Constraint: Fixed Column Count (固定列數)
+        │       - 設置：Constraint Count: (例如 2 或 3)
         │
         │   ├── WifiButton (按鈕 - Wi-Fi 開關)
         │   │   - 元件：Rect Transform (由父級 Layout Group 控制)
@@ -324,4 +338,4 @@
             - 元件：Rect Transform (錨點: Bottom-Stretch, Pos X/Y: 依設計調整, Width/Height: 依設計調整)
             - 元件：Image (拖曳此 Image 元件到 AndroidSystemBridge 腳本的 Themed Graphics 列表)
             - 元件：Vertical Layout Group 或 Horizontal Layout Group (根據音量滑條方向)
-            │   └── (未來這裡將放置音量控制相關的 Slider, Text 等 UI 元件)
+            └── (未來這裡將放置音量控制相關的 Slider, Text 等 UI 元件)
